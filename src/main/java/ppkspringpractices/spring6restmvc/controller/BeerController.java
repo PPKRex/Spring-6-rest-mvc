@@ -2,6 +2,7 @@ package ppkspringpractices.spring6restmvc.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,14 @@ import java.util.UUID;
 public class BeerController {
 
     private final BeerService beerService;
+
+    @DeleteMapping({"{beerId}"})
+    public ResponseEntity deleteById(@PathVariable("beerId") UUID beerId) {
+
+        beerService.deleteById(beerId);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 
     @PutMapping("{beerId}")
     public ResponseEntity updateById(@PathVariable("beerId") UUID beerId,@RequestBody Beer beer) {
