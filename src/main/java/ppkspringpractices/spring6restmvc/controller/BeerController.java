@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ppkspringpractices.spring6restmvc.modal.Beer;
+import ppkspringpractices.spring6restmvc.modal.Customer;
 import ppkspringpractices.spring6restmvc.service.BeerService;
 
 import java.util.List;
@@ -19,6 +20,30 @@ import java.util.UUID;
 public class BeerController {
 
     private final BeerService beerService;
+
+    @PatchMapping("{beerId}")
+    public ResponseEntity updateBeerPatchById(@PathVariable("beerId") UUID beerId,@RequestBody Beer beer){
+
+        beerService.patchBeerById(beerId,beer);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping({"{beerId}"})
+    public ResponseEntity deleteById(@PathVariable("customerId") UUID beerId) {
+
+        beerService.deleteById(beerId);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("{beerId}")
+    public ResponseEntity updateById(@PathVariable("beerId") UUID beerId,@RequestBody Beer beer) {
+
+        beerService.updateBeerById(beerId,beer);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 
     @PostMapping
     //@RequestMapping(method = RequestMethod.POST)
