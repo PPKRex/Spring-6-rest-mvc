@@ -1,4 +1,4 @@
-package ppkspringpractices.spring6restmvc.modal;
+package ppkspringpractices.spring6restmvc.dto;
 
 import lombok.Builder;
 import lombok.Data;

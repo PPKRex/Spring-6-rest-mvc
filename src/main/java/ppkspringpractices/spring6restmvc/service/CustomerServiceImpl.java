@@ -2,7 +2,7 @@ package ppkspringpractices.spring6restmvc.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ppkspringpractices.spring6restmvc.modal.CustomerDTO;
+import ppkspringpractices.spring6restmvc.dto.CustomerDTO;
 
 import java.time.LocalDateTime;
 import java.util.*;

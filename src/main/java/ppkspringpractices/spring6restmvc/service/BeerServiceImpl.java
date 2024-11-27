@@ -3,8 +3,8 @@ package ppkspringpractices.spring6restmvc.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import ppkspringpractices.spring6restmvc.modal.BeerDTO;
-import ppkspringpractices.spring6restmvc.modal.BeerStyle;
+import ppkspringpractices.spring6restmvc.dto.BeerDTO;
+import ppkspringpractices.spring6restmvc.dto.BeerStyle;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

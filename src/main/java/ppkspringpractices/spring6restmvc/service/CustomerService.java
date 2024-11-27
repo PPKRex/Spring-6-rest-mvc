@@ -1,6 +1,6 @@
 package ppkspringpractices.spring6restmvc.service;
 
-import ppkspringpractices.spring6restmvc.modal.CustomerDTO;
+import ppkspringpractices.spring6restmvc.dto.CustomerDTO;
 
 import java.util.List;
 import java.util.UUID;

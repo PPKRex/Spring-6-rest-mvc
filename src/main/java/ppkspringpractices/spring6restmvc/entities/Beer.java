@@ -2,9 +2,8 @@ package ppkspringpractices.spring6restmvc.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UuidGenerator;
-import ppkspringpractices.spring6restmvc.modal.BeerStyle;
+import ppkspringpractices.spring6restmvc.dto.BeerStyle;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ppkspringpractices.spring6restmvc.modal.CustomerDTO;
+import ppkspringpractices.spring6restmvc.dto.CustomerDTO;
 import ppkspringpractices.spring6restmvc.service.CustomerService;
 
 import java.util.List;
