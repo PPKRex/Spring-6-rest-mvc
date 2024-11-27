@@ -1,9 +1,9 @@
 package ppkspringpractices.spring6restmvc.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 import ppkspringpractices.spring6restmvc.modal.BeerStyle;
 
 import java.math.BigDecimal;
@@ -19,6 +19,9 @@ import java.util.UUID;
 public class Beer {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @UuidGenerator()
+    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
     private UUID id;
 
     @Version
