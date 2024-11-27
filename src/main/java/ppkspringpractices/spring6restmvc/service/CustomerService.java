@@ -1,19 +1,18 @@
 package ppkspringpractices.spring6restmvc.service;
 
-import ppkspringpractices.spring6restmvc.modal.Beer;
-import ppkspringpractices.spring6restmvc.modal.Customer;
+import ppkspringpractices.spring6restmvc.modal.CustomerDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface CustomerService {
-    List<Customer> listCustomer();
+    List<CustomerDTO> listCustomer();
 
-    Customer getCustomerById(UUID id);
+    CustomerDTO getCustomerById(UUID id);
 
-    Customer saveNewCustomer(Customer customer);
+    CustomerDTO saveNewCustomer(CustomerDTO customer);
 
-    void updateCustomerById(UUID customerId, Customer customer);
+    void updateCustomerById(UUID customerId, CustomerDTO customer);
 
     void deleteById(UUID customerId);
 }

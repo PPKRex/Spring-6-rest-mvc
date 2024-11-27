@@ -1,21 +1,20 @@
 package ppkspringpractices.spring6restmvc.service;
 
-import ppkspringpractices.spring6restmvc.modal.Beer;
-import ppkspringpractices.spring6restmvc.modal.Customer;
+import ppkspringpractices.spring6restmvc.modal.BeerDTO;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface BeerService {
-    List<Beer> listBeers();
+    List<BeerDTO> listBeers();
 
-    Beer getBeerById(UUID id);
+    BeerDTO getBeerById(UUID id);
 
-    Beer saveNewBeer(Beer beer);
+    BeerDTO saveNewBeer(BeerDTO beer);
 
-    void updateBeerById(UUID beerId, Beer beer);
+    void updateBeerById(UUID beerId, BeerDTO beer);
 
     void deleteById(UUID beerId);
 
-    void patchBeerById(UUID beerId, Beer beer);
+    void patchBeerById(UUID beerId, BeerDTO beer);
 }

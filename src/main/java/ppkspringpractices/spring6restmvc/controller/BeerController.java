@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ppkspringpractices.spring6restmvc.modal.Beer;
-import ppkspringpractices.spring6restmvc.modal.Customer;
+import ppkspringpractices.spring6restmvc.modal.BeerDTO;
 import ppkspringpractices.spring6restmvc.service.BeerService;
 
 import java.util.List;
@@ -22,7 +20,7 @@ public class BeerController {
     private final BeerService beerService;
 
     @PatchMapping("{beerId}")
-    public ResponseEntity updateBeerPatchById(@PathVariable("beerId") UUID beerId,@RequestBody Beer beer){
+    public ResponseEntity updateBeerPatchById(@PathVariable("beerId") UUID beerId,@RequestBody BeerDTO beer){
 
         beerService.patchBeerById(beerId,beer);
 
@@ -38,7 +36,7 @@ public class BeerController {
     }
 
     @PutMapping("{beerId}")
-    public ResponseEntity updateById(@PathVariable("beerId") UUID beerId,@RequestBody Beer beer) {
+    public ResponseEntity updateById(@PathVariable("beerId") UUID beerId,@RequestBody BeerDTO beer) {
 
         beerService.updateBeerById(beerId,beer);
 
@@ -47,17 +45,17 @@ public class BeerController {
 
     @PostMapping
     //@RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity handlePost(@RequestBody Beer beer) {
-        Beer savedBeer = beerService.saveNewBeer(beer);
+    public ResponseEntity handlePost(@RequestBody BeerDTO beer) {
+        BeerDTO savedBeer = beerService.saveNewBeer(beer);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
     @RequestMapping(method = RequestMethod.GET)
-    public List<Beer> listBeers(){
+    public List<BeerDTO> listBeers(){
         return beerService.listBeers();
     }
     @RequestMapping(value = "{beerId}", method = RequestMethod.GET)
-    public Beer getBeerById(@PathVariable("beerId") UUID beerId){
+    public BeerDTO getBeerById(@PathVariable("beerId") UUID beerId){
         log.debug("getBeerById - in controller 1234");
 
         return beerService.getBeerById(beerId);

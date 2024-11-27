@@ -1,17 +1,27 @@
-package ppkspringpractices.spring6restmvc.modal;
+package ppkspringpractices.spring6restmvc.entities;
 
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
+import lombok.*;
+import ppkspringpractices.spring6restmvc.modal.BeerStyle;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Getter
+@Setter
 @Builder
-@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Beer {
 
+    @Id
     private UUID id;
+
+    @Version
     private Integer version;
     private String beerName;
     private BeerStyle beerStyle;
