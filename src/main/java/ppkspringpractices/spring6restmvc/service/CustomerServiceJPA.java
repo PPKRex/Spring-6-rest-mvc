@@ -1,14 +1,18 @@
 package ppkspringpractices.spring6restmvc.service;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.NotFound;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import ppkspringpractices.spring6restmvc.controller.NotFoundException;
 import ppkspringpractices.spring6restmvc.dto.CustomerDTO;
 import ppkspringpractices.spring6restmvc.mappers.CustomerMapper;
 import ppkspringpractices.spring6restmvc.repositories.CustomerRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
@@ -20,12 +24,18 @@ public class CustomerServiceJPA implements CustomerService {
 
     @Override
     public List<CustomerDTO> listCustomer() {
-        return List.of();
+        return customerRepository.findAll()
+                .stream()
+                .map(customerMapper::customerToCustomerDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public CustomerDTO getCustomerById(UUID id) {
-        return null;
+    public Optional<CustomerDTO> getCustomerById(UUID id) {
+        return Optional.ofNullable(customerMapper
+                .customerToCustomerDTO(customerRepository
+                        .findById(id)
+                        .orElseThrow(() -> new NotFoundException("User not found with username: "))));
     }
 
     @Override

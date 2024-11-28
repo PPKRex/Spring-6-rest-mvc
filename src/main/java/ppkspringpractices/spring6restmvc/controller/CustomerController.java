@@ -10,6 +10,7 @@ import ppkspringpractices.spring6restmvc.dto.CustomerDTO;
 import ppkspringpractices.spring6restmvc.service.CustomerService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -51,7 +52,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "{customerId}",method = RequestMethod.GET)
-    public CustomerDTO getCustomerById(@PathVariable("customerId") UUID customerId){
+    public Optional<CustomerDTO> getCustomerById(@PathVariable("customerId") UUID customerId){
         return customerService.getCustomerById(customerId);
     }
 }

@@ -1,6 +1,7 @@
 package ppkspringpractices.spring6restmvc.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +10,11 @@ import ppkspringpractices.spring6restmvc.dto.BeerDTO;
 import ppkspringpractices.spring6restmvc.service.BeerService;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
@@ -54,8 +56,9 @@ public class BeerController {
     public List<BeerDTO> listBeers(){
         return beerService.listBeers();
     }
+
     @RequestMapping(value = "{beerId}", method = RequestMethod.GET)
-    public BeerDTO getBeerById(@PathVariable("beerId") UUID beerId){
+    public Optional<BeerDTO> getBeerById(@PathVariable("beerId") UUID beerId){
         log.debug("getBeerById - in controller 1234");
 
         return beerService.getBeerById(beerId);
